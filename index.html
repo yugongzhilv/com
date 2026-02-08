@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智绘王屋 - 当地好物 · 智能咨询</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-text">智绘王屋</span>
+      </a>
+      <nav class="nav">
+        <a href="#home">首页</a>
+        <a href="#about">概述</a>
+        <a href="#products">好物</a>
+        <a href="#culture">文创</a>
+        <a href="#news">资讯</a>
+        <a href="#contact">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn-icon" aria-label="搜索">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="#taobao" class="btn-primary-nav">进入淘宝店铺</a>
+      </div>
+    </div>
+    <div class="header-bar">
+      <a href="#taobao" class="bar-link">进入淘宝店铺</a>
+      <a href="#" class="bar-link" id="open-ai-chat">AI 智能咨询</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 主视觉轮播 -->
+    <section class="hero" id="home">
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="slide active" style="background-image: url('https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985d94083d74.webp')"></div>
+          <div class="slide" style="background-image: url('https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985d94289f81.webp')"></div>
+        </div>
+        <div class="carousel-overlay">
+          <div class="hero-caption">
+            <div class="hero-tags">
+              <span class="hero-tag">王屋山</span>
+              <span class="hero-tag">当地好物</span>
+              <span class="hero-tag">智能咨询</span>
+            </div>
+            <h1 class="hero-title">智绘王屋 · 当地好物</h1>
+            <p class="hero-subtitle">精选王屋山景区与周边好物，融合传统与现代，打造兼具文化内涵与实用价值的本地生活服务。</p>
+            <div class="hero-buttons">
+              <a href="#products" class="btn-hero btn-hero-primary">探索好物</a>
+              <a href="#guide" class="btn-hero btn-hero-secondary">旅游攻略</a>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="carousel-btn prev" aria-label="上一张">‹</button>
+        <button type="button" class="carousel-btn next" aria-label="下一张">›</button>
+        <div class="carousel-dots"></div>
+      </div>
+    </section>
+
+    <!-- 快捷功能区 -->
+    <section class="quick-access">
+      <div class="quick-inner">
+        <a href="#products" class="quick-item">
+          <img src="https://i.imgs.ovh/2026/02/06/yEdQDa.png" alt="开放时间" class="quick-icon" />
+          <span>开放时间</span>
+        </a>
+        <a href="#taobao" class="quick-item">
+          <img src="https://i.imgs.ovh/2026/02/06/yEd4bN.png" alt="进入淘宝店铺" class="quick-icon" />
+          <span>进入淘宝店铺</span>
+        </a>
+        <a href="#map" class="quick-item">
+          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98d95870.webp" alt="地图导航" class="quick-icon" />
+          <span>地图导航</span>
+        </a>
+        <a href="#guide" class="quick-item">
+          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98d862b0.webp" alt="攻略" class="quick-icon" />
+          <span>攻略</span>
+        </a>
+        <a href="#" class="quick-item" id="quick-ai">
+          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98ceebff.webp" alt="AI 智能咨询" class="quick-icon" />
+          <span>AI 智能咨询</span>
+        </a>
+        <a href="#feedback" class="quick-item">
+          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e994e4d8e.webp" alt="建议反馈" class="quick-icon" />
+          <span>建议反馈</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 公告/开放时间 -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-card">
+          <h2>开放时间与公告</h2>
+          <p><strong>旺季（5月1日 - 9月30日）：</strong> 每日 8:00 - 18:00</p>
+          <p><strong>淡季（10月1日 - 次年4月30日）：</strong> 每日 8:30 - 17:30</p>
+          <p class="muted">每周一闭馆（法定节假日除外）· 停止入馆前 30 分钟停止售票</p>
+          <p class="muted">新品上架与促销活动请关注淘宝店铺或咨询 AI 客服。</p>
+          <a href="#news" class="btn-more">更多</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 攻略：地理位置、风景名胜、特产美食、登山路线 -->
+    <section class="guide-section" id="guide">
+      <div class="container">
+        <h2 class="section-title">旅游攻略</h2>
+        <p class="guide-subtitle">精选路线，畅游王屋</p>
+
+        <div class="guide-intro">
+          <div class="guide-intro-block">
+            <h3>地理位置</h3>
+            <p>王屋山位于河南省济源市西北部，属太行山系，是中国古代九大名山之一，道教“天下第一洞天”。主峰天坛山海拔 1715 米，山势雄浑，自古为帝王祭天、文人寻仙之地。</p>
+          </div>
+          <div class="guide-intro-block">
+            <h3>风景名胜</h3>
+            <p>景区内拥有愚公移山故事发源地、阳台宫、总仙宫（天坛极顶）、太乙池、舍身崖、地质博物馆等众多人文与自然景观，四季景色各异，春赏山花、夏避酷暑、秋观红叶、冬览雪景。</p>
+          </div>
+          <div class="guide-intro-block">
+            <h3>特产美食</h3>
+            <p>当地特产包括王屋山珍、怀药、冬凌草、柿子醋等；美食有地道的豫西农家菜、山野菜与土鸡。选购特产可前往本站<a href="#products">精选好物</a>或淘宝店铺。</p>
+          </div>
+        </div>
+
+        <div class="route-cards">
+          <article class="route-card">
+            <div class="route-card-img" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80');">
+              <span class="route-tag">经典路线</span>
+              <div class="route-meta-top">
+                <span class="route-time">🕐 4-5小时</span>
+                <span class="route-diff">👤 挑战级</span>
+              </div>
+            </div>
+            <div class="route-card-body">
+              <h3>步行登山路线</h3>
+              <p class="route-detail">道境广场(售票处) → 王屋老街 → 上阳台帖 → 愚公故居 → 愚公移山像 → 地质博物馆 → 财神殿 → 灵官殿 → 玄坛殿 → 太乙池 → 舍身崖 → 总仙宫(天坛极顶)</p>
+              <div class="route-footer">
+                <span>全程约4-5小时 🕐</span>
+                <span>徒步难度：<span class="route-stars">★★★</span> 👤 挑战级</span>
+              </div>
+            </div>
+          </article>
+          <article class="route-card">
+            <div class="route-card-img" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80');">
+              <span class="route-tag highlight">推荐路线</span>
+              <div class="route-meta-top">
+                <span class="route-time">🕐 2-3小时</span>
+                <span class="route-diff">👤 中等难度</span>
+              </div>
+            </div>
+            <div class="route-card-body">
+              <h3>索道步行路线</h3>
+              <p class="route-detail">道境广场(售票处) → 地质博物馆 → 索道下站 → 索道上站 → 扶条阁 → 白皮松 → 紫薇长廊 → 清风台 → 休闲服务区 → 太乙池 → 舍身崖 → 总仙宫(天坛极顶)</p>
+              <div class="route-footer">
+                <span>全程约2-3小时 🕐</span>
+                <span>徒步难度：<span class="route-stars">★★</span> 👤 中等难度</span>
+              </div>
+            </div>
+          </article>
+          <article class="route-card">
+            <div class="route-card-img" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80');">
+              <span class="route-tag">轻松路线</span>
+              <div class="route-meta-top">
+                <span class="route-time">🕐 1.5-2小时</span>
+                <span class="route-diff">👤 轻松级</span>
+              </div>
+            </div>
+            <div class="route-card-body">
+              <h3>索道游览路线</h3>
+              <p class="route-detail">道境广场(售票处) → 地质博物馆 → 索道下站 → 索道上站 → 扶条阁 → 白皮松 → 紫薇长廊 → 时空隧道 → 飞天崖入口 → 清风台 → 休闲服务区 → 总仙宫(天坛极顶)</p>
+              <div class="route-footer">
+                <span>全程约1.5-2小时 🕐</span>
+                <span>徒步难度：<span class="route-stars">★</span> 👤 轻松级</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 内容分类 / 商品展示 -->
+    <section class="tiles-section" id="products">
+      <div class="container">
+        <h2 class="section-title">精选好物</h2>
+        <div class="tiles-grid">
+          <a href="#taobao" class="tile">
+            <div class="tile-img" style="background-image: url('https://i.imgs.ovh/2026/02/06/yE4Z0N.png')"></div>
+            <h3>特产美食</h3>
+          </a>
+          <a href="#taobao" class="tile">
+            <div class="tile-img" style="background-image: url('https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&q=80')"></div>
+            <h3>文创手礼</h3>
+          </a>
+          <div class="tile center-tile">
+            <span class="brand-name">智绘王屋</span>
+            <span class="brand-sub">当地好物 · 一键购</span>
+          </div>
+          <a href="#taobao" class="tile">
+            <div class="tile-img" style="background-image: url('https://i.imgs.ovh/2026/02/06/yE4vMF.jpeg')"></div>
+            <h3>旅行装备</h3>
+          </a>
+          <a href="#taobao" class="tile">
+            <div class="tile-img" style="background-image: url('https://i.imgs.ovh/2026/02/06/yE4wCp.webp')"></div>
+            <h3>茶与茶具</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 热销/馆藏珍品风格 -->
+    <section class="featured-section">
+      <div class="container">
+        <h2 class="section-title">热销推荐</h2>
+        <div class="featured-carousel">
+          <button type="button" class="feat-btn prev" aria-label="上一组">‹</button>
+          <div class="feat-track">
+            <a href="#taobao" class="feat-card">
+              <div class="feat-img" style="background-image: url('https://images.unsplash.com/photo-1595855759920-86582396756a?w=300&q=80')"></div>
+              <p>山珍礼盒</p>
+            </a>
+            <a href="#taobao" class="feat-card">
+              <div class="feat-img" style="background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=300&q=80')"></div>
+              <p>文创摆件</p>
+            </a>
+            <a href="#taobao" class="feat-card">
+              <div class="feat-img" style="background-image: url('https://images.unsplash.com/photo-1594035910387-fea47794261f?w=300&q=80')"></div>
+              <p>茶叶礼盒</p>
+            </a>
+            <a href="#taobao" class="feat-card">
+              <div class="feat-img" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80')"></div>
+              <p>手工织品</p>
+            </a>
+          </div>
+          <button type="button" class="feat-btn next" aria-label="下一组">›</button>
+        </div>
+        <div class="feat-actions">
+          <a href="#taobao" class="btn-explore">探索更多 · 进入淘宝店铺</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer" id="contact">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-text">智绘王屋</span>
+          <p>当地好物，一键直达淘宝店铺</p>
+          <div class="qrcodes">
+            <div class="qrcode-item">
+              <div class="qrcode-placeholder">公众号</div>
+              <span>智绘王屋</span>
+            </div>
+            <div class="qrcode-item">
+              <div class="qrcode-placeholder">淘宝店铺</div>
+              <span>扫码进店</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>概览</h4>
+            <a href="#about">品牌介绍</a>
+            <a href="#news">最新资讯</a>
+          </div>
+          <div class="footer-col">
+            <h4>购物</h4>
+            <a href="#taobao">淘宝店铺</a>
+            <a href="#products">好物分类</a>
+          </div>
+          <div class="footer-col">
+            <h4>服务</h4>
+            <a href="#" id="footer-ai">AI 智能咨询</a>
+            <a href="#feedback">建议反馈</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 智绘王屋 · 购买请跳转淘宝店铺（店铺筹备中）</p>
+        <p class="muted">网站备案号 · 技术支持</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 淘宝店铺跳转占位弹窗（店铺未建好时提示） -->
+  <div class="modal" id="taobao-modal" aria-hidden="true">
+    <div class="modal-content">
+      <button type="button" class="modal-close" id="close-taobao-modal" aria-label="关闭">×</button>
+      <h3>进入淘宝店铺</h3>
+      <p>我们的淘宝店铺正在筹备中，即将上线。届时您可在此直接跳转购买。</p>
+      <p class="muted">请先使用 <strong>AI 智能咨询</strong> 了解当地游玩、预算与住宿安排。</p>
+      <a href="https://www.taobao.com" target="_blank" rel="noopener" class="btn-primary">先逛淘宝</a>
+    </div>
+  </div>
+
+  <!-- AI 智能咨询浮窗 -->
+  <div class="ai-chat-widget" id="ai-chat-widget" aria-hidden="true">
+    <div class="ai-chat-header">
+      <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/08/6988969ebae5f.webp" alt="AI 助手" class="ai-chat-avatar" />
+      <span>AI 智能咨询</span>
+      <button type="button" class="ai-chat-close" id="close-ai-chat" aria-label="关闭">×</button>
+    </div>
+    <div class="ai-chat-body">
+      <div class="ai-messages" id="ai-messages">
+        <div class="ai-msg bot">
+          <p>您好！我是智绘王屋的 AI 助手。可以问我：<br/>· 当地游玩安排与景点推荐<br/>· 预算与行程规划<br/>· 住宿与房间推荐<br/>· 美食与购物建议</p>
+        </div>
+      </div>
+      <form class="ai-chat-form" id="ai-chat-form">
+        <input type="text" id="ai-input" placeholder="输入您的问题，例如：3人两天预算多少？" autocomplete="off" />
+        <button type="submit">发送</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 打开 AI 的悬浮按钮 -->
+  <button type="button" class="ai-fab" id="ai-fab" aria-label="打开 AI 智能咨询">
+    <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/08/6988969ebae5f.webp" alt="AI 咨询" class="ai-fab-icon" />
+    <span class="ai-fab-text">AI 咨询</span>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
