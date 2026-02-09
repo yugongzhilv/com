@@ -80,18 +80,32 @@
     else location.hash = id;
   });
 
-  // ---------- 热销横向滚动 ----------
-  var featTrack = document.querySelector('.feat-track');
-  if (featTrack) {
-    var featPrev = document.querySelector('.featured-carousel .feat-btn.prev');
-    var featNext = document.querySelector('.featured-carousel .feat-btn.next');
-    if (featPrev) featPrev.addEventListener('click', function () {
-      featTrack.scrollBy({ left: -220, behavior: 'smooth' });
+  // ---------- 济源特产：点击随机跳转指定淘宝商品链接 ----------
+  var taobaoRandomLinks = [
+    'https://item.taobao.com/item.htm?id=1020138422690&mi_id=0000wu0zFCa_kk2EnVlXEYLKKWI49r2JV9lW0MO66oe0cmE&spm=a21xtw.29178619.0.0&xxc=shop',
+    'https://item.taobao.com/item.htm?id=1021229637317&mi_id=0000hbuiDnImgB6IlpULSdIOQWaxhJN4BeXtK5zmZyZ9nGg&spm=a21xtw.29178619.0.0&xxc=shop',
+    'https://item.taobao.com/item.htm?id=1022010168148&mi_id=0000-dJgjV963-Rnl7qlACqGyA5gFomeMAj0ftskpi7uV7E&spm=a21xtw.29178619.0.0&xxc=shop'
+  ];
+  document.querySelectorAll('.taobao-random').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = taobaoRandomLinks[Math.floor(Math.random() * taobaoRandomLinks.length)];
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
-    if (featNext) featNext.addEventListener('click', function () {
-      featTrack.scrollBy({ left: 220, behavior: 'smooth' });
+  });
+
+  // ---------- 热销/文创横向滚动（支持多个轮播） ----------
+  document.querySelectorAll('.featured-carousel').forEach(function (carousel) {
+    var track = carousel.querySelector('.feat-track');
+    var prevBtn = carousel.querySelector('.feat-btn.prev');
+    var nextBtn = carousel.querySelector('.feat-btn.next');
+    if (track && prevBtn) prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -220, behavior: 'smooth' });
     });
-  }
+    if (track && nextBtn) nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+  });
 
   // ---------- 淘宝店铺跳转（店铺未建好：显示提示弹窗） ----------
   var taobaoModal = document.getElementById('taobao-modal');

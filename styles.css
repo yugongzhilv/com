@@ -449,6 +449,10 @@ img {
   text-align: center;
 }
 
+.section-title-spaced {
+  margin-top: 2rem;
+}
+
 /* ========== 公告区域 ========== */
 .info-section {
   padding: 3rem 0;
@@ -507,11 +511,98 @@ img {
   padding: 3rem 0;
 }
 
+.specialty-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
 .tiles-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+}
+
+.tiles-grid + .tiles-grid {
+  margin-top: 1.5rem;
+}
+
+.specialty-grid {
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   align-items: stretch;
+}
+
+/* 济源特产：电商卡片样式（类似天猫/淘宝列表） */
+.product-cards.specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.product-card {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.product-card-img {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f5f5;
+}
+
+.product-card-info {
+  padding: 0.75rem 0.9rem;
+}
+
+.product-card-title {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0 0 0.25rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card-tag {
+  color: #ff0036;
+  font-weight: 600;
+  margin-right: 0.2em;
+}
+
+.product-card-extra {
+  font-size: 0.75rem;
+  color: #ff6700;
+  margin: 0 0 0.35rem;
+}
+
+.product-card-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff6700;
+  margin: 0 0 0.2rem;
+}
+
+.product-card-sales {
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0;
 }
 
 .tile {
@@ -568,6 +659,9 @@ img {
   .tiles-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .product-cards.specialty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .tile.center-tile {
     grid-column: 1 / -1;
     max-width: 300px;
@@ -622,16 +716,11 @@ img {
   overflow-x: auto;
   padding: 0.5rem 0;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
 
 .feat-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.feat-track::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 3px;
+  display: none;
 }
 
 .feat-card {
