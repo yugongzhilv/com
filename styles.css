@@ -46,13 +46,14 @@ img {
   height: auto;
 }
 
-/* ========== 顶部导航 ========== */
+/* ========== 顶部导航（艺术字：龙藏体书法风格）========== */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--color-surface);
+  background: var(--color-primary-dark);
   box-shadow: var(--shadow);
+  font-family: 'Long Cang', 'Ma Shan Zheng', 'Noto Serif SC', cursive;
 }
 
 .header-inner {
@@ -72,9 +73,10 @@ img {
 
 .logo-text {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: #f5e6c8;
+  letter-spacing: 0.02em;
 }
 
 .nav {
@@ -84,12 +86,28 @@ img {
 }
 
 .nav a {
-  font-weight: 500;
-  color: var(--color-text);
+  font-family: 'Long Cang', 'Ma Shan Zheng', var(--font-serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #e2d5c4;
+  letter-spacing: 0.03em;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .nav a:hover {
-  color: var(--color-primary);
+  color: #fff;
+}
+
+.nav a.active {
+  color: #e8b84a;
+  border-bottom-color: #e8b84a;
+}
+
+.nav a.active:hover {
+  color: #f0c85c;
+  border-bottom-color: #f0c85c;
 }
 
 .header-actions {
@@ -102,43 +120,42 @@ img {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text);
+  color: #e8dcc8;
   padding: 0.25rem;
 }
 
 .btn-icon:hover {
-  color: var(--color-primary);
+  color: #fff;
 }
 
 .btn-primary-nav {
+  font-family: var(--font-serif);
   padding: 0.5rem 1rem;
-  background: var(--color-primary);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: var(--radius);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary-nav:hover {
-  background: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.3);
   color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
-.header-bar {
-  background: var(--color-primary-dark);
-  padding: 0.6rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.header-action-link {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: #e2d5c4;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
 }
 
-.bar-link {
-  color: #f5e6c8 !important;
-  font-weight: 500;
-}
-
-.bar-link:hover {
-  color: #fff !important;
+.header-action-link:hover {
+  color: #fff;
 }
 
 /* ========== 主视觉轮播 ========== */
@@ -313,22 +330,31 @@ img {
 .carousel-dots .dot {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.2s;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
 }
 
-.carousel-dots .dot.active {
-  background: #fff;
+.carousel-dots .dot .dot-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.carousel-dots .dot:hover .dot-icon-img {
+  opacity: 0.9;
 }
 
 /* ========== 快捷功能区 ========== */
 .quick-access {
   background: linear-gradient(135deg, #8b6914 0%, #6b5010 100%);
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   margin: -2rem 1.5rem 0;
   position: relative;
   z-index: 10;
@@ -348,8 +374,8 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 0.5rem;
+  gap: 0.35rem;
+  padding: 0.6rem 0.5rem;
   color: #f5e6c8;
   border-radius: var(--radius);
   transition: background 0.2s, color 0.2s;
@@ -360,9 +386,24 @@ img {
   color: #fff;
 }
 
+.quick-item:hover .quick-icon-wrap {
+  opacity: 1;
+}
+
 .quick-item.highlight {
   background: rgba(255,255,255,0.2);
   color: #fff;
+}
+
+.quick-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  opacity: 0.95;
 }
 
 .quick-icon {
@@ -370,13 +411,14 @@ img {
 }
 
 .quick-item img.quick-icon {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .quick-item span:last-child {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 

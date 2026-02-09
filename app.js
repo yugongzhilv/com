@@ -7,6 +7,7 @@
   var currentSlide = 0;
   var slideInterval;
 
+  var dotInactiveSrc, dotActiveSrc, useDotUrlIcons;
   function goToSlide(index) {
     if (!slides.length) return;
     currentSlide = (index + slides.length) % slides.length;
@@ -14,7 +15,13 @@
       s.classList.toggle('active', i === currentSlide);
     });
     var dots = dotsContainer && dotsContainer.querySelectorAll('.dot');
-    if (dots) dots.forEach(function (d, i) { d.classList.toggle('active', i === currentSlide); });
+    if (dots) {
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === currentSlide);
+        var img = d.querySelector('.dot-icon-img');
+        if (img && useDotUrlIcons && dotInactiveSrc && dotActiveSrc) img.src = i === currentSlide ? dotActiveSrc : dotInactiveSrc;
+      });
+    }
   }
 
   function nextSlide() {
@@ -26,11 +33,23 @@
   }
 
   if (slides.length && dotsContainer) {
+    var dotIcon = dotsContainer.getAttribute('data-dot-icon') || '';
+    var dotIconActive = dotsContainer.getAttribute('data-dot-icon-active') || '';
+    var defaultInactive = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="white" opacity="0.5"/></svg>');
+    var defaultActive = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="white"/></svg>');
+    dotInactiveSrc = dotIcon || defaultInactive;
+    dotActiveSrc = dotIconActive || defaultActive;
+    useDotUrlIcons = !!(dotIcon || dotIconActive);
     slides.forEach(function (_, i) {
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'dot' + (i === 0 ? ' active' : '');
       dot.setAttribute('aria-label', '第' + (i + 1) + '张');
+      var img = document.createElement('img');
+      img.src = i === 0 ? dotActiveSrc : dotInactiveSrc;
+      img.alt = '';
+      img.className = 'dot-icon-img';
+      dot.appendChild(img);
       dot.addEventListener('click', function () { goToSlide(i); });
       dotsContainer.appendChild(dot);
     });
@@ -38,6 +57,28 @@
     document.querySelector('.hero .carousel-btn.prev').addEventListener('click', prevSlide);
     slideInterval = setInterval(nextSlide, 5000);
   }
+
+  // ---------- 锚点跳转：滚动到内容标题居中 ----------
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute('href') === '#') return;
+    var id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    var titleEl = target.querySelector('.section-title') || target.querySelector('h2') || target.querySelector('h1') || target;
+    var rect = titleEl.getBoundingClientRect();
+    var currentScroll = window.scrollY || window.pageYOffset;
+    var elementCenterY = currentScroll + rect.top + rect.height / 2;
+    var viewportHalf = window.innerHeight / 2;
+    var targetScroll = elementCenterY - viewportHalf;
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    else location.hash = id;
+  });
 
   // ---------- 热销横向滚动 ----------
   var featTrack = document.querySelector('.feat-track');

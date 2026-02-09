@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Long+Cang&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
 </head>
 <body>
   <!-- 顶部导航 -->
@@ -17,10 +17,10 @@
         <span class="logo-text">智绘王屋</span>
       </a>
       <nav class="nav">
-        <a href="#home">首页</a>
-        <a href="#about">概述</a>
+        <a href="#home" class="active">首页</a>
+        <a href="#guide">概述</a>
         <a href="#products">好物</a>
-        <a href="#culture">文创</a>
+        <a href="#products">文创</a>
         <a href="#news">资讯</a>
         <a href="#contact">关于</a>
       </nav>
@@ -28,12 +28,9 @@
         <button type="button" class="btn-icon" aria-label="搜索">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </button>
+        <a href="#" class="header-action-link" id="open-ai-chat">AI 智能咨询</a>
         <a href="#taobao" class="btn-primary-nav">进入淘宝店铺</a>
       </div>
-    </div>
-    <div class="header-bar">
-      <a href="#taobao" class="bar-link">进入淘宝店铺</a>
-      <a href="#" class="bar-link" id="open-ai-chat">AI 智能咨询</a>
     </div>
   </header>
 
@@ -62,42 +59,42 @@
         </div>
         <button type="button" class="carousel-btn prev" aria-label="上一张">‹</button>
         <button type="button" class="carousel-btn next" aria-label="下一张">›</button>
-        <div class="carousel-dots"></div>
+        <div class="carousel-dots" data-dot-icon="" data-dot-icon-active=""></div>
       </div>
     </section>
 
     <!-- 快捷功能区 -->
     <section class="quick-access">
       <div class="quick-inner">
-        <a href="#products" class="quick-item">
-          <img src="https://i.imgs.ovh/2026/02/06/yEdQDa.png" alt="开放时间" class="quick-icon" />
+        <a href="#news" class="quick-item">
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/09/69895aaebe5da.webp" alt="开放时间" class="quick-icon" /></span>
           <span>开放时间</span>
         </a>
         <a href="#taobao" class="quick-item">
-          <img src="https://i.imgs.ovh/2026/02/06/yEd4bN.png" alt="进入淘宝店铺" class="quick-icon" />
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/09/69895aaeb75be.webp" alt="进入淘宝店铺" class="quick-icon" /></span>
           <span>进入淘宝店铺</span>
         </a>
         <a href="#map" class="quick-item">
-          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98d95870.webp" alt="地图导航" class="quick-icon" />
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/09/69895aaec0c5e.webp" alt="地图导航" class="quick-icon" /></span>
           <span>地图导航</span>
         </a>
         <a href="#guide" class="quick-item">
-          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98d862b0.webp" alt="攻略" class="quick-icon" />
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98d862b0.webp" alt="攻略" class="quick-icon" /></span>
           <span>攻略</span>
         </a>
         <a href="#" class="quick-item" id="quick-ai">
-          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98ceebff.webp" alt="AI 智能咨询" class="quick-icon" />
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e98ceebff.webp" alt="AI 智能咨询" class="quick-icon" /></span>
           <span>AI 智能咨询</span>
         </a>
         <a href="#feedback" class="quick-item">
-          <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e994e4d8e.webp" alt="建议反馈" class="quick-icon" />
+          <span class="quick-icon-wrap"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/06/6985e994e4d8e.webp" alt="建议反馈" class="quick-icon" /></span>
           <span>建议反馈</span>
         </a>
       </div>
     </section>
 
     <!-- 公告/开放时间 -->
-    <section class="info-section">
+    <section class="info-section" id="news">
       <div class="container">
         <div class="info-card">
           <h2>开放时间与公告</h2>
@@ -248,6 +245,27 @@
       </div>
     </section>
 
+    <!-- 地图导航 -->
+    <section class="info-section" id="map">
+      <div class="container">
+        <div class="info-card">
+          <h2>地图导航</h2>
+          <p>景区地址：河南省济源市王屋镇王屋山风景区。</p>
+          <p class="muted">地图与导航功能敬请期待，您也可通过各大地图 App 搜索「王屋山风景区」前往。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 建议反馈 -->
+    <section class="info-section" id="feedback">
+      <div class="container">
+        <div class="info-card">
+          <h2>建议反馈</h2>
+          <p>如有意见或建议，欢迎通过页面右下角 <strong>AI 智能咨询</strong> 与我们沟通，或关注公众号、淘宝店铺获取更多服务。</p>
+        </div>
+      </div>
+    </section>
+
     <!-- 页脚 -->
     <footer class="footer" id="contact">
       <div class="container footer-inner">
@@ -268,7 +286,7 @@
         <div class="footer-links">
           <div class="footer-col">
             <h4>概览</h4>
-            <a href="#about">品牌介绍</a>
+            <a href="#guide">品牌介绍</a>
             <a href="#news">最新资讯</a>
           </div>
           <div class="footer-col">
