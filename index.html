@@ -251,7 +251,8 @@
         <div class="info-card">
           <h2>地图导航</h2>
           <p>景区地址：河南省济源市王屋镇王屋山风景区。</p>
-          <p class="muted">地图与导航功能敬请期待，您也可通过各大地图 App 搜索「王屋山风景区」前往。</p>
+          <div class="map-embed-wrap" id="map-container"></div>
+          <p class="muted">地图中心：王屋山风景区（河南省济源市）。可拖拽、缩放查看；点击标记可打开导航。</p>
         </div>
       </div>
     </section>
@@ -345,6 +346,27 @@
     <span class="ai-fab-text">AI 咨询</span>
   </button>
 
+  <!-- 高德地图 API：请到 https://lbs.amap.com 注册并创建应用，将下方 YOUR_AMAP_KEY 替换为您的 Key -->
+  <script src="https://webapi.amap.com/maps?v=2.0&key=23c07557402ca516ab9862e942a6a86b"></script>
+  <script>
+    (function () {
+      var container = document.getElementById('map-container');
+      if (!container || typeof AMap === 'undefined') return;
+      var map = new AMap.Map('map-container', {
+        zoom: 14,
+        center: [112.29444, 35.14722],
+        viewMode: '2D'
+      });
+      var marker = new AMap.Marker({
+        position: [112.29444, 35.14722],
+        title: '王屋山风景区'
+      });
+      marker.setMap(map);
+      marker.on('click', function () {
+        window.open('https://uri.amap.com/marker?position=112.29444,35.14722&name=王屋山风景区', '_blank');
+      });
+    })();
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
